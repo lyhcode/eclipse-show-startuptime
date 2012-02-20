@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+version = '1.0'
+description = ''
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	groovy 'org.codehaus.groovy:groovy-all:1.8.6'
+}
+
+def defaultEncoding = 'UTF-8'
+
+[compileJava, compileTestJava]*.options*.encoding = defaultEncoding
+[compileGroovy, compileTestGroovy]*.options*.encoding = defaultEncoding
+[compileGroovy, compileTestGroovy]*.groovyOptions*.encoding = defaultEncoding
+
+defaultTasks 'jar'
+
